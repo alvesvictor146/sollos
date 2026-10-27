@@ -1,0 +1,281 @@
+/* ==========================================================================
+   SOLLOS 40 ANOS - SERVICE PAGE DEDICATED TEMPLATE
+   Layout Editorial: Topo Dark com Image Mask Reveal + Seção Clara de Leitura
+   Sidebar Sticky & Vantagens Numeradas com Réguas Finas
+   ========================================================================== */
+
+.service-page-header {
+  position: relative;
+  min-height: 60vh;
+  background: var(--bg-deep);
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 0 60px;
+  overflow: hidden;
+}
+
+.service-page-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.service-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+}
+
+.service-breadcrumb a {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.service-breadcrumb a:hover {
+  color: var(--gold-light);
+}
+
+.service-breadcrumb .separator {
+  color: var(--crimson-bright);
+}
+
+.service-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 200;
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.2rem;
+}
+
+.service-hero-title strong {
+  font-weight: 800;
+}
+
+.service-hero-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  color: var(--gold-light);
+  line-height: 1.4;
+  max-width: 620px;
+}
+
+/* Image Mask Reveal no Hero da Página de Serviço */
+.service-hero-mask-wrap {
+  position: relative;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.service-hero-mask-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Corpo Editorial em Seção Clara de Alta Legibilidade */
+.service-content-section {
+  background: var(--paper-bg);
+  color: var(--text-dark);
+  padding: 5rem 0 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.service-editorial-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.service-editorial-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.service-lead-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1a1a1f;
+  border-left: 3px solid var(--crimson);
+  padding-left: 1.5rem;
+}
+
+.service-body-text {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #3b3c43;
+}
+
+/* Vantagens com Réguas Douradas */
+.service-advantages-block {
+  margin-top: 2rem;
+}
+
+.service-advantages-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 2rem;
+}
+
+.service-advantages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.service-advantage-item {
+  border-top: 1px solid rgba(198, 161, 91, 0.5);
+  padding-top: 1.2rem;
+}
+
+.service-advantage-num {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--crimson);
+  margin-bottom: 0.4rem;
+}
+
+.service-advantage-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #121316;
+  margin-bottom: 0.5rem;
+}
+
+.service-advantage-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #555761;
+}
+
+/* Sidebar Sticky Escura */
+.service-sidebar {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.service-sidebar-card {
+  background: #0D0E12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
+}
+
+.service-sidebar-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1.4rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.service-sidebar-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: var(--crimson);
+}
+
+.service-sidebar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-sidebar-link {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  transition: all 0.25s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.service-sidebar-link:hover, .service-sidebar-link.active {
+  color: var(--gold-light);
+  transform: translateX(4px);
+}
+
+.service-sidebar-cta-card {
+  background: linear-gradient(135deg, rgba(22, 23, 28, 0.95) 0%, rgba(12, 13, 16, 0.98) 100%);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  border-radius: 18px;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.service-sidebar-cta-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson-bright);
+  margin-bottom: 0.6rem;
+}
+
+.service-sidebar-cta-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .service-page-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .service-editorial-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-sidebar {
+    position: static;
+  }
+  
+  .service-advantages-grid {
+    grid-template-columns: 1fr;
+  }
+}

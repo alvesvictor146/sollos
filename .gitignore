@@ -1,0 +1,10 @@
+# IDE e Sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs e Temporários
+*.log
+scratch/
+temp/
