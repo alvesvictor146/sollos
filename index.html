@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,10 +18,20 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./SOLLOS 3D (1).png">
   
+  <!-- Inicializador Rápido de Tema (Padrão: Claro) -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('sollos-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/theme.css">
 </head>
+
 <body>
 
   <!-- ========================================================================
@@ -70,8 +80,18 @@
         </ul>
       </nav>
 
-      <!-- Botão Magnético Header -->
+      <!-- Ações do Header: Toggle de Tema + Botão de Contato -->
       <div class="header-actions">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Alternar tema de cores" title="Alternar entre tema Claro e Escuro">
+          <span class="theme-toggle-icon icon-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+          <span class="theme-toggle-icon icon-moon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          <span class="theme-toggle-label"></span>
+        </button>
+
         <div class="magnetic-btn-wrap" data-magnetic-strength="0.3">
           <a href="#contato" class="btn-magnetic btn-primary">
             <span>Fale Conosco</span>
@@ -85,6 +105,7 @@
           <span></span>
         </button>
       </div>
+
     </div>
   </header>
 

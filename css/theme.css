@@ -1,0 +1,734 @@
+/* ==========================================================================
+   SOLLOS 40 ANOS - THEME ENGINE (LIGHT & DARK DUAL THEME)
+   Padrão: Tema Claro "Graphite Light" com Tons de Cinza, Acentos de Vermelho Nobre
+   e Fechamento com Rodapé Grafite Escuro (#18181B)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS DE TEMA (DEFAULT LIGHT & [data-theme="light"])
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme="light"] {
+  /* Fundo e Superfícies em Tons de Cinza Arquitetônicos */
+  --bg-deep: #F4F4F6;
+  --bg-surface: #EAEAEF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FAFAFB;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+
+  /* Identidade da Marca: Vermelho Nobre Pontual */
+  --crimson: #8E1B1F;
+  --crimson-bright: #ad2126;
+  --crimson-glow: rgba(142, 27, 31, 0.2);
+  --crimson-subtle: rgba(142, 27, 31, 0.08);
+
+  /* Acentos de Aço e Grafite (Substitutos da escala dourada no tema claro) */
+  --gold: #27272A;
+  --gold-light: #52525B;
+  --gold-dark: #18181B;
+  --gold-gradient: linear-gradient(135deg, #18181B 0%, #3F3F46 50%, #71717A 100%);
+  --gold-glow: rgba(24, 24, 27, 0.08);
+
+  /* Textos de Alta Legibilidade e Conforto Visual */
+  --text-pure: #09090B;
+  --text-primary: #18181B;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --text-dark: #09090B;
+
+  /* Bordas e Réguas Finas */
+  --border-subtle: rgba(24, 24, 27, 0.09);
+  --border-gold: rgba(24, 24, 27, 0.18);
+  --border-crimson: rgba(142, 27, 31, 0.35);
+
+  /* Sombras Delicadas em Fundo Claro */
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.1);
+
+  /* Hero Vídeo P&B e Overlays */
+  --hero-video-filter: grayscale(100%) contrast(1.1) brightness(0.92);
+  --hero-gold-text: linear-gradient(135deg, #FFFFFF 0%, #E4E4E7 50%, #A1A1AA 100%);
+}
+
+/* --------------------------------------------------------------------------
+   2. VARIÁVEIS DE TEMA ESCURO ([data-theme="dark"])
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg-deep: #060607;
+  --bg-surface: #0c0d0e;
+  --bg-card: rgba(18, 19, 22, 0.72);
+  --bg-card-hover: rgba(26, 28, 33, 0.9);
+  --bg-glass: rgba(14, 15, 18, 0.65);
+
+  --crimson: #8E1B1F;
+  --crimson-bright: #ad2126;
+  --crimson-glow: rgba(142, 27, 31, 0.35);
+  --crimson-subtle: rgba(142, 27, 31, 0.12);
+
+  --gold: #C6A15B;
+  --gold-light: #E7CF9B;
+  --gold-dark: #917032;
+  --gold-gradient: linear-gradient(135deg, #E7CF9B 0%, #C6A15B 50%, #917032 100%);
+  --gold-glow: rgba(198, 161, 91, 0.25);
+
+  --text-pure: #FFFFFF;
+  --text-primary: #F2F2F4;
+  --text-secondary: #9B9DA5;
+  --text-muted: #5C5E67;
+  --text-dark: #121316;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(198, 161, 91, 0.3);
+  --border-crimson: rgba(142, 27, 31, 0.4);
+
+  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 25px 60px rgba(0, 0, 0, 0.7);
+
+  --hero-video-filter: contrast(1.08) brightness(0.95);
+  --hero-gold-text: var(--gold-gradient);
+}
+
+/* Transição global suave de temas */
+body, 
+.site-header, 
+.service-card, 
+.pillar-card, 
+.parceiro-badge, 
+.highlight-box, 
+.contato-form-card, 
+.service-modal-dialog {
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+
+/* --------------------------------------------------------------------------
+   3. BOTÃO DE ALTERNÂNCIA DE TEMA (HEADER THEME TOGGLE)
+   -------------------------------------------------------------------------- */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out-expo);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--crimson);
+  color: var(--crimson);
+  box-shadow: 0 4px 18px rgba(142, 27, 31, 0.15);
+}
+
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-toggle-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.theme-toggle-btn:hover .theme-toggle-icon svg {
+  transform: rotate(25deg);
+}
+
+/* Visibilidade alternada dos ícones de Sol e Lua */
+[data-theme="dark"] .icon-sun {
+  display: none !important;
+}
+[data-theme="dark"] .icon-moon {
+  display: inline-flex !important;
+}
+
+:root:not([data-theme="dark"]) .icon-sun,
+[data-theme="light"] .icon-sun {
+  display: inline-flex !important;
+}
+:root:not([data-theme="dark"]) .icon-moon,
+[data-theme="light"] .icon-moon {
+  display: none !important;
+}
+
+/* Texto descritivo do tema */
+.theme-toggle-label::after {
+  content: 'Claro';
+}
+[data-theme="dark"] .theme-toggle-label::after {
+  content: 'Escuro';
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-label {
+    display: none;
+  }
+  .theme-toggle-btn {
+    padding: 0.5rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. ESTILOS DO TEMA CLARO (ESPECIFICIDADES WCAG & DESIGN EDITORIAL)
+   -------------------------------------------------------------------------- */
+:root:not([data-theme="dark"]),
+[data-theme="light"] {
+
+  /* Cursor customizado no tema claro */
+  .custom-cursor {
+    background: var(--crimson);
+  }
+  .custom-cursor-follower {
+    border-color: rgba(24, 24, 27, 0.35);
+  }
+  .custom-cursor-follower.hovered {
+    border-color: var(--crimson);
+    background: rgba(142, 27, 31, 0.06);
+  }
+  .mouse-spotlight {
+    background: radial-gradient(circle, rgba(142, 27, 31, 0.04) 0%, rgba(24, 24, 27, 0.02) 40%, transparent 70%);
+  }
+
+  /* Preloader no tema claro */
+  .preloader {
+    background: #F4F4F6;
+  }
+  .preloader-counter {
+    color: #18181B;
+  }
+  .preloader-counter .year-highlight {
+    color: var(--crimson);
+  }
+  .preloader-bar-wrap {
+    background: rgba(24, 24, 27, 0.1);
+  }
+  .preloader-bar {
+    background: linear-gradient(90deg, #18181B 0%, var(--crimson) 100%);
+  }
+  .preloader-subtitle {
+    color: #71717A;
+  }
+
+  /* Header Consistente no Tema Claro (Topo e Scroll sem saltos de cor) */
+  .site-header {
+    background-color: rgba(244, 244, 246, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(24, 24, 27, 0.06);
+    transition: background-color 0.4s var(--ease-out-expo), border-color 0.4s ease, height 0.4s ease, box-shadow 0.4s ease;
+  }
+  .site-header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(24, 24, 27, 0.09);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    height: 76px;
+  }
+  .nav-link {
+    color: #27272A;
+    font-weight: 600;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: #09090B;
+  }
+  .nav-link::after {
+    background: linear-gradient(90deg, var(--crimson), #18181B);
+  }
+  .mobile-toggle span {
+    background: #18181B;
+  }
+  .nav-menu {
+    background: transparent !important;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      background: #FFFFFF !important;
+    }
+  }
+
+  /* Botões no Tema Claro (consistentes no header e em todas as seções) */
+  .theme-toggle-btn {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.15);
+    color: #18181B;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .theme-toggle-btn:hover {
+    border-color: var(--crimson);
+    color: var(--crimson);
+    box-shadow: 0 4px 16px rgba(142, 27, 31, 0.15);
+  }
+
+  .btn-primary {
+    background: #18181B;
+    color: #FFFFFF;
+    border: 1px solid #18181B;
+    box-shadow: 0 4px 18px rgba(24, 24, 27, 0.18);
+  }
+  .btn-primary:hover {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    box-shadow: 0 6px 24px rgba(142, 27, 31, 0.35);
+  }
+  .btn-outline-gold {
+    background: #FFFFFF;
+    color: #18181B;
+    border: 1px solid rgba(24, 24, 27, 0.22);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  }
+  .btn-outline-gold:hover {
+    background: #18181B;
+    color: #FFFFFF;
+    border-color: #18181B;
+    box-shadow: 0 4px 18px rgba(24, 24, 27, 0.15);
+  }
+
+  /* Hero Section: Vídeo Claro / Luminoso no fundo e Overlay Suave (+5% visibilidade adicional = 0.42) */
+  .hero-section {
+    background-color: #F4F4F6 !important;
+  }
+  .hero-video-bg {
+    filter: grayscale(100%) brightness(1.18) contrast(0.92) !important;
+    opacity: 0.42 !important;
+  }
+  .hero-overlay {
+    background: 
+      radial-gradient(ellipse at 50% 45%, rgba(244, 244, 246, 0.3) 0%, rgba(244, 244, 246, 0.72) 100%),
+      linear-gradient(180deg, rgba(244, 244, 246, 0.5) 0%, rgba(244, 244, 246, 0.14) 40%, rgba(244, 244, 246, 0.72) 80%, #F4F4F6 100%) !important;
+  }
+
+
+
+  /* Texto à Frente do Hero em PRETO / Grafite Profundo de Alto Destaque */
+  .hero-title,
+  .hero-title .text-reveal-line-inner,
+  .hero-title .bold-part {
+    color: #09090B !important;
+    text-shadow: none !important;
+  }
+  .hero-title .gold-part {
+    background: linear-gradient(135deg, #09090B 0%, #27272A 50%, var(--crimson) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: #09090B !important;
+    text-shadow: none !important;
+  }
+
+  .hero-eyebrow {
+    color: var(--crimson) !important;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    background: var(--crimson) !important;
+  }
+
+  .hero-description {
+    color: #27272A !important;
+    text-shadow: none !important;
+    font-weight: 400 !important;
+  }
+
+  /* Indicador de Scroll do Hero */
+  .hero-scroll-indicator {
+    color: #52525B !important;
+  }
+  .hero-scroll-indicator:hover {
+    color: #09090B !important;
+  }
+  .scroll-line {
+    background: rgba(24, 24, 27, 0.2) !important;
+  }
+  .scroll-line::after {
+    background: linear-gradient(180deg, var(--crimson), #18181B) !important;
+  }
+
+
+  /* Ticker Marquee */
+  .ticker-section {
+    background: #EAEAEF;
+    border-top: 1px solid rgba(24, 24, 27, 0.08);
+    border-bottom: 1px solid rgba(24, 24, 27, 0.08);
+  }
+  .ticker-item {
+    color: #71717A;
+  }
+  .ticker-item:hover {
+    color: #18181B;
+  }
+  .ticker-item .bullet {
+    background: var(--crimson);
+    box-shadow: 0 0 6px rgba(142, 27, 31, 0.4);
+  }
+
+  /* Institucional */
+  .section-title {
+    color: #18181B;
+  }
+  .lead-paragraph {
+    color: #18181B;
+  }
+  .lead-paragraph strong {
+    color: var(--crimson);
+  }
+  .body-paragraph {
+    color: #52525B;
+  }
+  .highlight-box {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: var(--shadow-card);
+  }
+  .highlight-box:hover {
+    border-color: rgba(142, 27, 31, 0.35);
+    box-shadow: var(--shadow-hover);
+  }
+  .highlight-number {
+    background: linear-gradient(135deg, #18181B 0%, #3F3F46 70%, var(--crimson) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .highlight-label {
+    color: #18181B;
+  }
+  .highlight-desc {
+    color: #71717A;
+  }
+
+  /* Expertise & Cards de Serviço */
+  .expertise-section {
+    background: linear-gradient(180deg, #F4F4F6 0%, #EAEAEF 50%, #F4F4F6 100%);
+  }
+  .expertise-bg-text {
+    color: rgba(24, 24, 27, 0.03);
+  }
+  .service-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: var(--shadow-card);
+  }
+  .service-card:hover {
+    border-color: rgba(142, 27, 31, 0.4);
+    box-shadow: var(--shadow-hover);
+  }
+  .service-card-img {
+    opacity: 0.12;
+    filter: grayscale(100%) brightness(0.8);
+  }
+  .service-card:hover .service-card-img {
+    opacity: 0.22;
+    filter: grayscale(40%) brightness(0.9);
+  }
+  .service-card-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.98) 100%);
+  }
+  .service-card:hover .service-card-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.95) 100%);
+  }
+  .service-index {
+    color: var(--crimson);
+  }
+  .service-icon-wrap {
+    background: rgba(24, 24, 27, 0.04);
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    color: #18181B;
+  }
+  .service-card:hover .service-icon-wrap {
+    background: rgba(142, 27, 31, 0.1);
+    border-color: var(--crimson);
+    color: var(--crimson);
+  }
+  .service-title {
+    color: #18181B;
+  }
+  .service-card:hover .service-title {
+    color: var(--crimson);
+  }
+  .service-subtitle {
+    color: #71717A;
+  }
+  .service-summary {
+    color: #52525B;
+  }
+  .service-explore-link {
+    color: #18181B;
+  }
+  .service-card:hover .service-explore-link {
+    color: var(--crimson);
+  }
+  .service-tag {
+    background: rgba(142, 27, 31, 0.06);
+    color: var(--crimson);
+    border: 1px solid rgba(142, 27, 31, 0.2);
+  }
+  .service-card-footer {
+    border-top: 1px solid rgba(24, 24, 27, 0.06);
+  }
+
+  /* Card Showcase de Vídeo */
+  .service-video-showcase {
+    background: #18181B;
+    border: 1px solid rgba(24, 24, 27, 0.15);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  }
+  .service-video-element {
+    filter: grayscale(80%) contrast(1.1);
+  }
+
+  /* Credibilidade & Pilares */
+  .credibilidade-section {
+    background: #F4F4F6;
+  }
+  .pillar-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: var(--shadow-card);
+  }
+  .pillar-card:hover {
+    border-color: rgba(142, 27, 31, 0.35);
+    box-shadow: var(--shadow-hover);
+  }
+  .pillar-icon-box {
+    background: rgba(142, 27, 31, 0.08);
+    border: 1px solid rgba(142, 27, 31, 0.25);
+    color: var(--crimson);
+  }
+  .pillar-card:hover .pillar-icon-box {
+    background: var(--crimson);
+    color: #FFFFFF;
+  }
+  .pillar-title {
+    color: #18181B;
+  }
+  .pillar-desc {
+    color: #52525B;
+  }
+
+  /* Parceiros & Ecossistema */
+  .parceiros-section {
+    background: #EAEAEF;
+    border-top: 1px solid rgba(24, 24, 27, 0.08);
+    border-bottom: 1px solid rgba(24, 24, 27, 0.08);
+  }
+  .parceiro-badge {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  }
+  .parceiro-badge:hover {
+    border-color: rgba(142, 27, 31, 0.3);
+    background: #FFFFFF;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+  .parceiro-name {
+    color: #18181B;
+  }
+  .parceiro-type {
+    color: #71717A;
+  }
+  .parceiro-icon {
+    color: var(--crimson);
+  }
+
+  /* Contato & Formulário */
+  .contato-section {
+    background: #F4F4F6;
+  }
+  .contato-icon {
+    background: rgba(142, 27, 31, 0.08);
+    border: 1px solid rgba(142, 27, 31, 0.25);
+    color: var(--crimson);
+  }
+  .contato-text p, .contato-text a {
+    color: #18181B;
+  }
+  .contato-text a:hover {
+    color: var(--crimson);
+  }
+  .contato-form-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07);
+  }
+  .form-label {
+    color: #27272A;
+  }
+  .form-input, .form-select, .form-textarea {
+    background: #F8F8FA;
+    border: 1px solid #D4D4D8;
+    color: #18181B;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    background: #FFFFFF;
+    border-color: #18181B;
+    box-shadow: 0 0 16px rgba(24, 24, 27, 0.08);
+  }
+  .form-select option {
+    background: #FFFFFF;
+    color: #18181B;
+  }
+
+  /* Modal de Serviço */
+  .service-modal {
+    background: rgba(24, 24, 27, 0.65);
+  }
+  .service-modal-dialog {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.12);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
+  }
+  .service-modal-hero-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 100%);
+  }
+  .service-modal-close {
+    background: rgba(24, 24, 27, 0.06);
+    border: 1px solid rgba(24, 24, 27, 0.1);
+    color: #18181B;
+  }
+  .service-modal-close:hover {
+    background: var(--crimson);
+    color: #FFFFFF;
+  }
+  .service-modal-title {
+    color: #18181B;
+  }
+  .service-modal-subtitle {
+    color: #52525B;
+  }
+  .service-modal-text {
+    color: #27272A;
+  }
+  .service-modal-benefits {
+    background: #F4F4F6;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+  }
+  .service-modal-benefit-item {
+    color: #52525B;
+  }
+  .service-modal-cta-row {
+    border-top: 1px solid rgba(24, 24, 27, 0.08);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. PÁGINAS DE SERVIÇO NO TEMA CLARO
+   -------------------------------------------------------------------------- */
+:root:not([data-theme="dark"]),
+[data-theme="light"] {
+  .service-page-header {
+    background: #EAEAEF;
+  }
+  .service-hero-title {
+    color: #18181B;
+  }
+  .service-hero-subtitle {
+    color: #52525B;
+  }
+  .service-content-section {
+    background: #F4F4F6;
+  }
+  .service-lead-text {
+    color: #18181B;
+    border-left-color: var(--crimson);
+  }
+  .service-body-text {
+    color: #3F3F46;
+  }
+  .service-advantage-item {
+    border-top: 1px solid rgba(24, 24, 27, 0.12);
+  }
+  .service-advantage-name {
+    color: #18181B;
+  }
+  .service-advantage-desc {
+    color: #52525B;
+  }
+  .service-sidebar-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: var(--shadow-card);
+    color: #18181B;
+  }
+  .service-sidebar-title {
+    color: #18181B;
+  }
+  .service-sidebar-link {
+    color: #52525B;
+    border-bottom: 1px solid rgba(24, 24, 27, 0.06);
+  }
+  .service-sidebar-link:hover, .service-sidebar-link.active {
+    color: var(--crimson);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. RODAPÉ GRAFITE ESCURO (#18181B) - FECHAMENTO DE PESO PARA AMBOS OS TEMAS
+   Conforme decisão expressa do usuário: "Grafite escuro #18181B para fechar a página com peso"
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: #18181B !important;
+  color: #F2F2F4 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-accent-bar {
+  background: linear-gradient(90deg, 
+    #27272A 0%, 
+    #52525B 25%, 
+    #8E1B1F 50%, 
+    #52525B 75%, 
+    #27272A 100%
+  ) !important;
+  height: 3px !important;
+}
+
+.footer-col-title {
+  color: #FFFFFF !important;
+}
+
+.footer-col-title::after {
+  background: var(--crimson) !important;
+}
+
+.footer-bio {
+  color: #A1A1AA !important;
+}
+
+.footer-nav-link {
+  color: #A1A1AA !important;
+}
+
+.footer-nav-link:hover {
+  color: #FFFFFF !important;
+}
+
+.footer-contact-item {
+  color: #A1A1AA !important;
+}
+
+.footer-bottom {
+  background: #121316 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: #71717A !important;
+}
+

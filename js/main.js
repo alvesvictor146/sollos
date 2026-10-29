@@ -151,6 +151,7 @@ class SollosApp {
   }
 
   init() {
+    this.initThemeToggle();
     this.initPreloader();
     this.initHeaderScroll();
     this.initMobileNav();
@@ -160,6 +161,27 @@ class SollosApp {
     this.checkInitialHash();
     this.initHeroVideoAutoplay();
   }
+
+  /* -------------------------------------------------------------
+     THEME TOGGLE ENGINE (DEFAULT LIGHT & DUAL THEME)
+  ------------------------------------------------------------- */
+  initThemeToggle() {
+    // Inicia por padrão no tema claro (light) ou recupera do localStorage
+    const savedTheme = localStorage.getItem('sollos-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('sollos-theme', newTheme);
+      });
+    });
+  }
+
 
   /* -------------------------------------------------------------
      PRELOADER COM CONTAGEM 1986 -> 2026
@@ -320,7 +342,7 @@ class SollosApp {
     }
     if (modalText) {
       modalText.innerHTML = `
-        <p style="margin-bottom: 1.2rem; font-weight: 500; color: #FFFFFF; font-size: 1.15rem; line-height: 1.6;">${data.lead}</p>
+        <p style="margin-bottom: 1.2rem; font-weight: 500; color: var(--text-primary); font-size: 1.15rem; line-height: 1.6;">${data.lead}</p>
         <p>${data.description}</p>
       `;
     }
@@ -331,12 +353,13 @@ class SollosApp {
         <li class="service-modal-benefit-item">
           <span class="service-benefit-bullet">✦</span>
           <div>
-            <strong style="color: #FFFFFF; font-weight: 600;">${b.title}:</strong>
+            <strong style="color: var(--text-primary); font-weight: 600;">${b.title}:</strong>
             <span>${b.desc}</span>
           </div>
         </li>
       `).join('');
     }
+
 
     if (modalCtaBtn) {
       modalCtaBtn.textContent = data.ctaText;
