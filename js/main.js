@@ -147,10 +147,14 @@ const SOLLOS_SERVICES = {
 class SollosApp {
   constructor() {
     this.services = SOLLOS_SERVICES;
+    this.activeServiceKey = null;
     this.init();
   }
 
   init() {
+    if (window.sollosI18n) {
+      window.sollosI18n.init();
+    }
     this.initThemeToggle();
     this.initPreloader();
     this.initHeaderScroll();
@@ -288,6 +292,7 @@ class SollosApp {
 
     // Fechar Modal
     const closeModal = () => {
+      this.activeServiceKey = null;
       modal.classList.remove('active');
       document.body.style.overflow = '';
       if (window.location.hash.startsWith('#servico-')) {
@@ -316,8 +321,21 @@ class SollosApp {
     });
   }
 
-  openServiceModal(serviceKey) {
-    const data = this.services[serviceKey];
+  refreshActiveModal() {
+    if (this.activeServiceKey) {
+      const modal = document.getElementById('serviceModal');
+      if (modal && modal.classList.contains('active')) {
+        this.openServiceModal(this.activeServiceKey, false);
+      }
+    }
+  }
+
+  openServiceModal(serviceKey, updateHistory = true) {
+    this.activeServiceKey = serviceKey;
+    const data = (window.sollosI18n && typeof window.sollosI18n.getServiceData === 'function')
+      ? window.sollosI18n.getServiceData(serviceKey)
+      : this.services[serviceKey];
+
     if (!data) return;
 
     const modal = document.getElementById('serviceModal');
@@ -381,7 +399,7 @@ class SollosApp {
     // Abre
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    history.replaceState(null, null, `#servico-${serviceKey}`);
+    if (updateHistory) history.replaceState(null, null, `#servico-${serviceKey}`);
   }
 
   checkInitialHash() {
@@ -435,10 +453,11 @@ class SollosApp {
         
         if (feedback) {
           feedback.className = 'form-feedback success';
-          feedback.innerHTML = `
+          const curLang = window.sollosI18n ? window.sollosI18n.currentLang : 'pt';
+          feedback.innerHTML = (window.sollosI18n && window.sollosI18n.data[curLang]) ? window.sollosI18n.data[curLang].form_success_msg : '<strong>Mensagem enviada com sucesso!</strong>'; /*
             <strong>Mensagem enviada com sucesso!</strong><br>
             A equipe sênior da Sollos entrará em contato em breve para discutir as necessidades do seu projeto.
-          `;
+          */
           feedback.style.display = 'block';
         }
 

@@ -23,6 +23,8 @@
     (function() {
       var savedTheme = localStorage.getItem('sollos-theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
+      var savedLang = localStorage.getItem('sollos-lang') || 'pt';
+      document.documentElement.setAttribute('lang', savedLang === 'pt' ? 'pt-BR' : 'en');
     })();
   </script>
 
@@ -57,7 +59,7 @@
     <div class="preloader-bar-wrap">
       <div class="preloader-bar" id="preloaderBar"></div>
     </div>
-    <div class="preloader-subtitle">40 Anos de Vanguarda Imobiliária</div>
+    <div class="preloader-subtitle" data-i18n="preloader_subtitle">40 Anos de Vanguarda Imobiliária</div>
   </div>
 
   <!-- ========================================================================
@@ -72,16 +74,17 @@
       <!-- Menu Principal -->
       <nav aria-label="Navegação Principal">
         <ul class="nav-menu">
-          <li><a href="#institucional" class="nav-link">Institucional</a></li>
-          <li><a href="#expertise" class="nav-link">Expertise</a></li>
-          <li><a href="#credibilidade" class="nav-link">Credibilidade</a></li>
-          <li><a href="#parceiros" class="nav-link">Parceiros</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
+          <li><a href="#institucional" class="nav-link" data-i18n="nav_institucional">Institucional</a></li>
+          <li><a href="#expertise" class="nav-link" data-i18n="nav_expertise">Expertise</a></li>
+          <li><a href="#credibilidade" class="nav-link" data-i18n="nav_credibilidade">Credibilidade</a></li>
+          <li><a href="#parceiros" class="nav-link" data-i18n="nav_parceiros">Parceiros</a></li>
+          <li><a href="#contato" class="nav-link" data-i18n="nav_contato">Contato</a></li>
         </ul>
       </nav>
 
-      <!-- Ações do Header: Toggle de Tema + Botão de Contato -->
+      <!-- Ações do Header: Toggle de Tema + Seletor de Idioma + Botão de Contato -->
       <div class="header-actions">
+        <!-- Botão de Alternância de Tema (Claro / Escuro) -->
         <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Alternar tema de cores" title="Alternar entre tema Claro e Escuro">
           <span class="theme-toggle-icon icon-sun" aria-hidden="true">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -92,9 +95,26 @@
           <span class="theme-toggle-label"></span>
         </button>
 
+        <!-- Botão de Alternância de Idioma (Português / Inglês) -->
+        <button class="lang-toggle-btn" id="langToggleBtn" aria-label="Alternar idioma para Inglês" title="Alternar idioma (Português / English)">
+          <span class="lang-globe-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </span>
+          <span class="lang-text-wrap">
+            <span class="lang-pill active" id="langOptPt">PT</span>
+            <span class="lang-divider">/</span>
+            <span class="lang-pill" id="langOptEn">EN</span>
+          </span>
+        </button>
+
+        <!-- CTA Header -->
         <div class="magnetic-btn-wrap" data-magnetic-strength="0.3">
           <a href="#contato" class="btn-magnetic btn-primary">
-            <span>Fale Conosco</span>
+            <span data-i18n="btn_contact_header">Fale Conosco</span>
             <span class="btn-shine"></span>
           </a>
         </div>
@@ -127,28 +147,28 @@
         <!-- Texto & Revelação -->
         <div class="hero-text-col">
           <div class="hero-eyebrow">
-            <span>DESDE 1986 · 40 ANOS DE TRADIÇÃO</span>
+            <span data-i18n="hero_eyebrow">DESDE 1986 · 40 ANOS DE TRADIÇÃO</span>
           </div>
 
           <h1 class="hero-title">
             <span class="text-reveal-line">
-              <span class="text-reveal-line-inner">ESTRUTURAMOS O FUTURO DO</span>
+              <span class="text-reveal-line-inner" data-i18n="hero_title_line1">ESTRUTURAMOS O FUTURO DO</span>
             </span>
             <span class="text-reveal-line">
               <span class="text-reveal-line-inner bold-part">
-                MERCADO <span class="gold-part">IMOBILIÁRIO</span>
+                <span data-i18n="hero_title_market">MERCADO</span> <span class="gold-part" data-i18n="hero_title_realestate">IMOBILIÁRIO</span>
               </span>
             </span>
           </h1>
 
-          <p class="hero-description blur-reveal">
+          <p class="hero-description blur-reveal" data-i18n="hero_desc">
             Uma trajetória sólida de quatro décadas conectando inteligência financeira, segurança jurídica rigorosa e excelência técnica para grandes corporações e investidores no Brasil.
           </p>
 
           <div class="hero-ctas blur-reveal">
             <div class="magnetic-btn-wrap" data-magnetic-strength="0.35">
               <a href="#expertise" class="btn-magnetic btn-primary">
-                <span>Nossa Expertise</span>
+                <span data-i18n="hero_btn_expertise">Nossa Expertise</span>
                 <span class="arrow-slide">→</span>
                 <span class="btn-shine"></span>
               </a>
@@ -156,7 +176,7 @@
 
             <div class="magnetic-btn-wrap" data-magnetic-strength="0.35">
               <a href="#contato" class="btn-magnetic btn-outline-gold">
-                <span>Iniciar Diálogo</span>
+                <span data-i18n="hero_btn_dialogue">Iniciar Diálogo</span>
                 <span class="arrow-slide">→</span>
               </a>
             </div>
@@ -168,7 +188,7 @@
     <!-- Indicador de Scroll -->
     <a href="#institucional" class="hero-scroll-indicator" aria-label="Rolar para seção institucional">
       <div class="scroll-line"></div>
-      <span>SCROLL</span>
+      <span data-i18n="hero_scroll">SCROLL</span>
     </a>
   </section>
 
@@ -177,23 +197,23 @@
        ======================================================================== -->
   <div class="ticker-section" aria-hidden="true">
     <div class="ticker-track">
-      <div class="ticker-item"><span>SECURITIZAÇÃO (CRI)</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>BUILD TO SUIT</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>FUSÕES E AQUISIÇÕES (M&A)</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>DUE DILIGENCE MULTIDISCIPLINAR</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>VALUATION NBR 14.653</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>SALE & LEASEBACK</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>POWER CENTERS & STRIP MALLS</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>40 ANOS DE SOLIDEZ</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_cri">SECURITIZAÇÃO (CRI)</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_bts">BUILD TO SUIT</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_ma">FUSÕES E AQUISIÇÕES (M&A)</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_dd">DUE DILIGENCE MULTIDISCIPLINAR</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_valuation">VALUATION NBR 14.653</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_slb">SALE & LEASEBACK</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_retail">POWER CENTERS & STRIP MALLS</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_years">40 ANOS DE SOLIDEZ</span><span class="bullet"></span></div>
       <!-- Repetição Contínua -->
-      <div class="ticker-item"><span>SECURITIZAÇÃO (CRI)</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>BUILD TO SUIT</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>FUSÕES E AQUISIÇÕES (M&A)</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>DUE DILIGENCE MULTIDISCIPLINAR</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>VALUATION NBR 14.653</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>SALE & LEASEBACK</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>POWER CENTERS & STRIP MALLS</span><span class="bullet"></span></div>
-      <div class="ticker-item"><span>40 ANOS DE SOLIDEZ</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_cri">SECURITIZAÇÃO (CRI)</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_bts">BUILD TO SUIT</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_ma">FUSÕES E AQUISIÇÕES (M&A)</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_dd">DUE DILIGENCE MULTIDISCIPLINAR</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_valuation">VALUATION NBR 14.653</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_slb">SALE & LEASEBACK</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_retail">POWER CENTERS & STRIP MALLS</span><span class="bullet"></span></div>
+      <div class="ticker-item"><span data-i18n="ticker_years">40 ANOS DE SOLIDEZ</span><span class="bullet"></span></div>
     </div>
   </div>
 
@@ -204,9 +224,9 @@
     <div class="container">
       <div class="section-header reveal-init">
         <div class="section-eyebrow">
-          <span>INSTITUCIONAL</span>
+          <span data-i18n="inst_eyebrow">INSTITUCIONAL</span>
         </div>
-        <h2 class="section-title">
+        <h2 class="section-title" data-i18n="inst_title">
           A <strong>SOLLOS</strong> INCORPORAÇÕES E<br>EMPREENDIMENTOS IMOBILIÁRIOS
         </h2>
         <div class="section-divider"></div>
@@ -214,18 +234,18 @@
 
       <div class="institucional-grid">
         <div class="institucional-narrative">
-          <p class="lead-paragraph blur-reveal">
+          <p class="lead-paragraph blur-reveal" data-i18n="inst_lead">
             Uma empresa atuante desde <strong>1986</strong> no mercado imobiliário, servindo clientes nacionais e multinacionais de grande destaque no cenário empresarial brasileiro.
           </p>
-          <p class="body-paragraph blur-reveal">
+          <p class="body-paragraph blur-reveal" data-i18n="inst_body1">
             A política da <strong>SOLLOS</strong> é oferecer serviços da mais alta qualidade, utilizando métodos e tecnologia de vanguarda, antecipando as necessidades de seus clientes no dinâmico e exigente ambiente econômico em que convivemos.
           </p>
-          <p class="body-paragraph blur-reveal">
+          <p class="body-paragraph blur-reveal" data-i18n="inst_body2">
             Especializada na estruturação de negócios complexos, unimos engenharia financeira de ponta e profundo rigor técnico para transformar oportunidades em valor patrimonial duradouro.
           </p>
           <div class="magnetic-btn-wrap" style="margin-top: 1rem;">
             <a href="#expertise" class="btn-magnetic btn-outline-gold">
-              <span>Conheça Nossas Soluções</span>
+              <span data-i18n="inst_btn">Conheça Nossas Soluções</span>
               <span class="arrow-slide">→</span>
             </a>
           </div>
@@ -234,26 +254,26 @@
         <div class="institucional-highlights count-trigger">
           <div class="highlight-box tilt-card reveal-init">
             <div class="highlight-number" data-counter="40" data-start="1" data-suffix="+">40+</div>
-            <div class="highlight-label">Anos de Tradição</div>
-            <p class="highlight-desc">Fundada em 1986, construindo relacionamentos perenes e sólidos no país.</p>
+            <div class="highlight-label" data-i18n="stat_years_title">Anos de Tradição</div>
+            <p class="highlight-desc" data-i18n="stat_years_desc">Fundada em 1986, construindo relacionamentos perenes e sólidos no país.</p>
           </div>
 
           <div class="highlight-box tilt-card reveal-init">
             <div class="highlight-number" data-counter="100" data-suffix="%">100%</div>
-            <div class="highlight-label">Segurança Jurídica</div>
-            <p class="highlight-desc">Processos de Due Diligence e auditoria que blindam patrimônios e decisões.</p>
+            <div class="highlight-label" data-i18n="stat_legal_title">Segurança Jurídica</div>
+            <p class="highlight-desc" data-i18n="stat_legal_desc">Processos de Due Diligence e auditoria que blindam patrimônios e decisões.</p>
           </div>
 
           <div class="highlight-box tilt-card reveal-init">
-            <div class="highlight-number" data-counter="14" data-prefix="NBR " data-suffix=".653">14.653</div>
-            <div class="highlight-label">Rigor Normativo</div>
-            <p class="highlight-desc">Avaliações rigorosamente em conformidade com os mais altos padrões ABNT e IVS.</p>
+            <div class="highlight-number" data-prefix="+ " data-counter="5" data-suffix=" MM">+ 5 MM</div>
+            <div class="highlight-label" data-i18n="stat_locados_title">m² Locados</div>
+            <p class="highlight-desc" data-i18n="stat_locados_desc">Mais de 5 milhões de metros quadrados locados em operações estruturadas e ativos corporativos.</p>
           </div>
 
           <div class="highlight-box tilt-card reveal-init">
-            <div class="highlight-number" data-counter="7" data-suffix=" Verticais">7</div>
-            <div class="highlight-label">Expertise Integrada</div>
-            <p class="highlight-desc">Da securitização e BTS a desmobilização de ativos e desenvolvimento de varejo.</p>
+            <div class="highlight-number" data-prefix="+ " data-counter="3" data-suffix=" MM">+ 3 MM</div>
+            <div class="highlight-label" data-i18n="stat_comerc_title">m² Comercializados</div>
+            <p class="highlight-desc" data-i18n="stat_comerc_desc">Mais de 3 milhões de metros quadrados comercializados em grandes transações imobiliárias.</p>
           </div>
         </div>
       </div>
@@ -269,9 +289,9 @@
     <div class="container">
       <div class="section-header reveal-init">
         <div class="section-eyebrow">
-          <span>NOSSA EXPERTISE</span>
+          <span data-i18n="exp_eyebrow">NOSSA EXPERTISE</span>
         </div>
-        <h2 class="section-title">
+        <h2 class="section-title" data-i18n="exp_title">
           SOLUÇÕES DE <strong>ALTA COMPLEXIDADE</strong>
         </h2>
         <div class="section-divider"></div>
@@ -299,7 +319,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">Mercado de Capitais</span>
@@ -327,7 +347,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">Desenvolvimento</span>
@@ -355,7 +375,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">M&A Estratégico</span>
@@ -383,7 +403,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">Segurança Jurídica</span>
@@ -411,7 +431,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">Engenharia Econômica</span>
@@ -439,7 +459,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">Desmobilização</span>
@@ -467,7 +487,7 @@
             </div>
             <div class="service-card-footer">
               <span class="service-explore-link">
-                <span>Ver Detalhes</span>
+                <span data-i18n="card_view_details">Ver Detalhes</span>
                 <span class="arrow-slide">→</span>
               </span>
               <span class="service-tag">Complexos de Varejo</span>
@@ -484,11 +504,11 @@
             <div class="service-video-overlay">
               <div class="service-video-badge">
                 <span class="live-dot"></span>
-                <span>Due Diligence & Inteligência Técnica</span>
+                <span data-i18n="video_badge">Due Diligence & Inteligência Técnica</span>
               </div>
               <div class="service-video-content">
-                <h4 class="service-video-title">Engenharia Financeira & Auditoria de Ativos</h4>
-                <p class="service-video-desc">Tecnologia avançada, análise de viabilidade e rigor regulatório para mitigar riscos e estruturar ativos de grande porte no Brasil.</p>
+                <h4 class="service-video-title" data-i18n="video_title">Engenharia Financeira & Auditoria de Ativos</h4>
+                <p class="service-video-desc" data-i18n="video_desc">Tecnologia avançada, análise de viabilidade e rigor regulatório para mitigar riscos e estruturar ativos de grande porte no Brasil.</p>
               </div>
             </div>
           </div>
@@ -505,13 +525,13 @@
     <div class="container">
       <div class="section-header reveal-init">
         <div class="section-eyebrow">
-          <span>CREDIBILIDADE & CONFIANÇA</span>
+          <span data-i18n="cred_eyebrow">CREDIBILIDADE & CONFIANÇA</span>
         </div>
-        <h2 class="section-title">
+        <h2 class="section-title" data-i18n="cred_title">
           CONSTRUINDO O FUTURO COM OS<br><strong>GIGANTES DO MERCADO</strong>
         </h2>
         <div class="section-divider"></div>
-        <p class="body-paragraph blur-reveal" style="max-width: 780px; margin-top: 1.5rem;">
+        <p class="body-paragraph blur-reveal" style="max-width: 780px; margin-top: 1.5rem;" data-i18n="cred_lead">
           A solidez da Sollos foi edificada através de décadas de relacionamentos transparentes. Operamos em sinergia com as maiores instituições financeiras e varejistas do Brasil para estruturar operações de alta complexidade.
         </p>
       </div>
@@ -522,8 +542,8 @@
           <div class="pillar-icon-box">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3 class="pillar-title">Segurança Jurídica</h3>
-          <p class="pillar-desc">Processos de Due Diligence e auditoria rigorosos que garantem a integridade, conformidade documental e perenidade de cada operação estruturada.</p>
+          <h3 class="pillar-title" data-i18n="pillar1_title">Segurança Jurídica</h3>
+          <p class="pillar-desc" data-i18n="pillar1_desc">Processos de Due Diligence e auditoria rigorosos que garantem a integridade, conformidade documental e perenidade de cada operação estruturada.</p>
         </div>
 
         <!-- Pilar 2 -->
@@ -531,8 +551,8 @@
           <div class="pillar-icon-box">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
-          <h3 class="pillar-title">Alta Performance</h3>
-          <p class="pillar-desc">Maximização assertiva de resultados através de estruturação financeira inteligente, mitigação de passivos e otimização dos balanços patrimoniais.</p>
+          <h3 class="pillar-title" data-i18n="pillar2_title">Alta Performance</h3>
+          <p class="pillar-desc" data-i18n="pillar2_desc">Maximização assertiva de resultados através de estruturação financeira inteligente, mitigação de passivos e otimização dos balanços patrimoniais.</p>
         </div>
 
         <!-- Pilar 3 -->
@@ -540,8 +560,8 @@
           <div class="pillar-icon-box">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </div>
-          <h3 class="pillar-title">Network Exclusivo</h3>
-          <p class="pillar-desc">Acesso direto aos principais fundos imobiliários (FIIs), bancos de investimento, investidores institucionais e redes de varejo líderes no país.</p>
+          <h3 class="pillar-title" data-i18n="pillar3_title">Network Exclusivo</h3>
+          <p class="pillar-desc" data-i18n="pillar3_desc">Acesso direto aos principais fundos imobiliários (FIIs), bancos de investimento, investidores institucionais e redes de varejo líderes no país.</p>
         </div>
       </div>
     </div>
@@ -554,9 +574,9 @@
     <div class="container">
       <div class="parceiros-header reveal-init">
         <div class="section-eyebrow" style="justify-content: center;">
-          <span>ECOSSISTEMA DE MERCADO</span>
+          <span data-i18n="parc_eyebrow">ECOSSISTEMA DE MERCADO</span>
         </div>
-        <h3 class="section-title" style="font-size: 1.8rem;">
+        <h3 class="section-title" style="font-size: 1.8rem;" data-i18n="parc_title">
           Conectados aos <strong>Principais Players</strong>
         </h3>
       </div>
@@ -566,48 +586,48 @@
           <div class="parceiro-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
           </div>
-          <div class="parceiro-name">Instituições Financeiras</div>
-          <div class="parceiro-type">Bancos de Investimento</div>
+          <div class="parceiro-name" data-i18n="parc1_name">Instituições Financeiras</div>
+          <div class="parceiro-type" data-i18n="parc1_type">Bancos de Investimento</div>
         </div>
 
         <div class="parceiro-badge">
           <div class="parceiro-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
           </div>
-          <div class="parceiro-name">Fundos de Investimento</div>
-          <div class="parceiro-type">FIIs & Private Equity</div>
+          <div class="parceiro-name" data-i18n="parc2_name">Fundos de Investimento</div>
+          <div class="parceiro-type" data-i18n="parc2_type">FIIs & Private Equity</div>
         </div>
 
         <div class="parceiro-badge">
           <div class="parceiro-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
           </div>
-          <div class="parceiro-name">Varejistas Nacionais</div>
-          <div class="parceiro-type">Grandes Âncoras (Big Box)</div>
+          <div class="parceiro-name" data-i18n="parc3_name">Varejistas Nacionais</div>
+          <div class="parceiro-type" data-i18n="parc3_type">Grandes Âncoras (Big Box)</div>
         </div>
 
         <div class="parceiro-badge">
           <div class="parceiro-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
           </div>
-          <div class="parceiro-name">Securitizadoras</div>
-          <div class="parceiro-type">Emissão de CRI</div>
+          <div class="parceiro-name" data-i18n="parc4_name">Securitizadoras</div>
+          <div class="parceiro-type" data-i18n="parc4_type">Emissão de CRI</div>
         </div>
 
         <div class="parceiro-badge">
           <div class="parceiro-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </div>
-          <div class="parceiro-name">Desenvolvedores</div>
-          <div class="parceiro-type">Logística & Corporativo</div>
+          <div class="parceiro-name" data-i18n="parc5_name">Desenvolvedores</div>
+          <div class="parceiro-type" data-i18n="parc5_type">Logística & Corporativo</div>
         </div>
 
         <div class="parceiro-badge">
           <div class="parceiro-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="parceiro-name">Bancas Jurídicas</div>
-          <div class="parceiro-type">Due Diligence & Compliance</div>
+          <div class="parceiro-name" data-i18n="parc6_name">Bancas Jurídicas</div>
+          <div class="parceiro-type" data-i18n="parc6_type">Due Diligence & Compliance</div>
         </div>
       </div>
     </div>
@@ -623,15 +643,15 @@
         <div class="contato-info">
           <div class="section-header" style="margin-bottom: 2rem;">
             <div class="section-eyebrow">
-              <span>CANAIS DE ATENDIMENTO</span>
+              <span data-i18n="cont_eyebrow">CANAIS DE ATENDIMENTO</span>
             </div>
-            <h2 class="section-title">
+            <h2 class="section-title" data-i18n="cont_title">
               ESTAMOS PRONTOS PARA<br><strong>ATENDER SUA EMPRESA</strong>
             </h2>
             <div class="section-divider"></div>
           </div>
 
-          <p class="body-paragraph blur-reveal">
+          <p class="body-paragraph blur-reveal" data-i18n="cont_lead">
             Entre em contato com nossa equipe especializada para discutir projetos, agendar reuniões ou esclarecer dúvidas sobre nossos serviços de estruturação imobiliária.
           </p>
 
@@ -640,7 +660,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div class="contato-text">
-              <h4>Localização</h4>
+              <h4 data-i18n="cont_loc_title">Localização</h4>
               <p>Av. Pres. Juscelino Kubitschek, 2041<br>Vila Olímpia, São Paulo - SP</p>
             </div>
           </div>
@@ -650,7 +670,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div class="contato-text">
-              <h4>Telefone</h4>
+              <h4 data-i18n="cont_phone_title">Telefone</h4>
               <p><a href="tel:+551130440000">(11) 3044-0000</a></p>
             </div>
           </div>
@@ -660,7 +680,7 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div class="contato-text">
-              <h4>Email</h4>
+              <h4 data-i18n="cont_email_title">Email</h4>
               <p><a href="mailto:sollos@sollos.com.br">sollos@sollos.com.br</a></p>
             </div>
           </div>
@@ -671,30 +691,30 @@
           <form id="sollosContactForm">
             <div class="form-group-row">
               <div class="form-group">
-                <label for="formName" class="form-label">Nome Completo</label>
-                <input type="text" id="formName" class="form-input" placeholder="Seu nome" required>
+                <label for="formName" class="form-label" data-i18n="form_label_name">Nome Completo</label>
+                <input type="text" id="formName" class="form-input" placeholder="Seu nome" data-i18n-placeholder="form_placeholder_name" required>
               </div>
 
               <div class="form-group">
-                <label for="formCompany" class="form-label">Empresa</label>
-                <input type="text" id="formCompany" class="form-input" placeholder="Nome da empresa">
+                <label for="formCompany" class="form-label" data-i18n="form_label_company">Empresa</label>
+                <input type="text" id="formCompany" class="form-input" placeholder="Nome da empresa" data-i18n-placeholder="form_placeholder_company">
               </div>
             </div>
 
             <div class="form-group-row">
               <div class="form-group">
-                <label for="formEmail" class="form-label">E-mail Corporativo</label>
-                <input type="email" id="formEmail" class="form-input" placeholder="seuemail@empresa.com.br" required>
+                <label for="formEmail" class="form-label" data-i18n="form_label_email">E-mail Corporativo</label>
+                <input type="email" id="formEmail" class="form-input" placeholder="seuemail@empresa.com.br" data-i18n-placeholder="form_placeholder_email" required>
               </div>
 
               <div class="form-group">
-                <label for="formPhone" class="form-label">Telefone / WhatsApp</label>
-                <input type="tel" id="formPhone" class="form-input" placeholder="(11) 99999-9999">
+                <label for="formPhone" class="form-label" data-i18n="form_label_phone">Telefone / WhatsApp</label>
+                <input type="tel" id="formPhone" class="form-input" placeholder="(11) 99999-9999" data-i18n-placeholder="form_placeholder_phone">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="formService" class="form-label">Serviço de Interesse</label>
+              <label for="formService" class="form-label" data-i18n="form_label_service">Serviço de Interesse</label>
               <select id="formService" class="form-select">
                 <option value="">Selecione uma área de interesse...</option>
                 <option value="securitizacao">Securitização de Recebíveis (CRI)</option>
@@ -709,13 +729,13 @@
             </div>
 
             <div class="form-group">
-              <label for="formMessage" class="form-label">Mensagem ou Descrição do Ativo</label>
-              <textarea id="formMessage" class="form-textarea" placeholder="Descreva brevemente sua demanda ou projeto..." rows="4" required></textarea>
+              <label for="formMessage" class="form-label" data-i18n="form_label_message">Mensagem ou Descrição do Ativo</label>
+              <textarea id="formMessage" class="form-textarea" placeholder="Descreva brevemente sua demanda ou projeto..." data-i18n-placeholder="form_placeholder_message" rows="4" required></textarea>
             </div>
 
             <div class="magnetic-btn-wrap" style="width: 100%;">
               <button type="submit" class="btn-magnetic btn-primary" style="width: 100%;">
-                <span>Enviar Solicitação Confidencial</span>
+                <span data-i18n="form_btn_submit">Enviar Solicitação Confidencial</span>
                 <span class="btn-shine"></span>
               </button>
             </div>
@@ -738,14 +758,14 @@
         <!-- Coluna 1: Marca & Síntese -->
         <div class="footer-brand-col">
           <img src="./SOLLOS 3D (1).png" alt="Sollos 40 Anos" class="footer-logo-img">
-          <p class="footer-bio">
+          <p class="footer-bio" data-i18n="footer_bio">
             Desde 1986, a Sollos redefine o mercado imobiliário brasileiro. Especializada na estruturação de negócios complexos, oferecemos soluções personalizadas que unem engenharia financeira e expertise técnica para grandes corporações.
           </p>
         </div>
 
         <!-- Coluna 2: Expertise -->
         <div class="footer-col">
-          <h4 class="footer-col-title">EXPERTISE</h4>
+          <h4 class="footer-col-title" data-i18n="footer_col_expertise">EXPERTISE</h4>
           <ul class="footer-nav-list">
             <li><a href="#" class="footer-nav-link" data-service-trigger="securitizacao">Securitização</a></li>
             <li><a href="#" class="footer-nav-link" data-service-trigger="build-to-suit">Build To Suit</a></li>
@@ -758,19 +778,19 @@
 
         <!-- Coluna 3: Sollos Institucional -->
         <div class="footer-col">
-          <h4 class="footer-col-title">SOLLOS</h4>
+          <h4 class="footer-col-title" data-i18n="footer_col_sollos">SOLLOS</h4>
           <ul class="footer-nav-list">
-            <li><a href="#institucional" class="footer-nav-link">Quem Somos</a></li>
-            <li><a href="#parceiros" class="footer-nav-link">Nossos Parceiros</a></li>
-            <li><a href="#credibilidade" class="footer-nav-link">Diferenciais</a></li>
-            <li><a href="#contato" class="footer-nav-link">Trabalhe Conosco</a></li>
-            <li><a href="#contato" class="footer-nav-link">Imprensa</a></li>
+            <li><a href="#institucional" class="footer-nav-link" data-i18n="footer_link_quemsomos">Quem Somos</a></li>
+            <li><a href="#parceiros" class="footer-nav-link" data-i18n="footer_link_parceiros">Nossos Parceiros</a></li>
+            <li><a href="#credibilidade" class="footer-nav-link" data-i18n="footer_link_diferenciais">Diferenciais</a></li>
+            <li><a href="#contato" class="footer-nav-link" data-i18n="footer_link_trabalhe">Trabalhe Conosco</a></li>
+            <li><a href="#contato" class="footer-nav-link" data-i18n="footer_link_imprensa">Imprensa</a></li>
           </ul>
         </div>
 
         <!-- Coluna 4: Contato -->
         <div class="footer-col">
-          <h4 class="footer-col-title">CONTATO</h4>
+          <h4 class="footer-col-title" data-i18n="footer_col_contato">CONTATO</h4>
           <div class="footer-contact-item">
             <span class="footer-contact-icon">📍</span>
             <span>Av. Pres. Juscelino Kubitschek, 2041<br>Vila Olímpia, São Paulo - SP</span>
@@ -784,16 +804,35 @@
             <a href="tel:+551130440000" class="footer-nav-link">(11) 3044-0000</a>
           </div>
         </div>
+
+        <!-- Coluna 5: Liderança (Posicionamento Solicitado) -->
+        <div class="footer-col">
+          <h4 class="footer-col-title" data-i18n="footer_col_lideranca">LIDERANÇA</h4>
+          <div class="footer-exec-list">
+            <div class="footer-exec-item">
+              <span class="footer-exec-name">Joao Solla</span>
+              <span class="footer-exec-role" data-i18n="footer_exec_solla">Head Estruturador de Negócios</span>
+            </div>
+            <div class="footer-exec-item">
+              <span class="footer-exec-name">Madalena Papp Lopes</span>
+              <span class="footer-exec-role" data-i18n="footer_exec_madalena">Head Financeiro</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Barra Inferior -->
     <div class="footer-bottom">
       <div class="container footer-bottom-container">
-        <div>
+        <div class="footer-bottom-copy" data-i18n="footer_copyright">
           © 1986 - 2026 SOLLOS Incorporações e Empreendimentos Imobiliários. Todos os direitos reservados.
         </div>
-        <div>
+        <div class="footer-developer">
+          <span data-i18n="footer_dev_prefix">Desenvolvido por</span>
+          <a href="https://www.zionsites.com.br" target="_blank" rel="noopener noreferrer" class="developer-link">ZionSites</a>
+        </div>
+        <div class="footer-bottom-tagline" data-i18n="footer_tagline">
           40 Anos de Vanguarda e Engenharia Financeira no Brasil.
         </div>
       </div>
@@ -832,7 +871,7 @@
             <span class="btn-shine"></span>
           </button>
           <a href="#contato" class="btn-magnetic btn-outline-gold" onclick="document.getElementById('serviceModal').classList.remove('active')">
-            <span>Falar com Especialista</span>
+            <span data-i18n="modal_btn_talk">Falar com Especialista</span>
           </a>
         </div>
       </div>
@@ -841,6 +880,7 @@
 
   <!-- Scripts -->
   <script src="./js/animations.js"></script>
+  <script src="./js/i18n.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>

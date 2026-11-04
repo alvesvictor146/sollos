@@ -28,8 +28,10 @@ O site está disponível publicamente em:
 
 ---
 
-## ⚡ Tecnologias e Animações Implementadas
+## ⚡ Tecnologias e Recursos Implementados
 
+- **Internacionalização Dinâmica (i18n PT / EN)**: alternância instantânea entre Português e Inglês no menu inicial, cobrindo todos os textos, cartões e gaveta modal com persistência via `localStorage`.
+- **Tema Dual (Claro & Escuro)**: alternância fluida entre modo dark luxo editorial e modo claro com contraste calibrado.
 - **Reveal Animation & Blur Reveal**: transições suaves escalonadas via `IntersectionObserver`.
 - **Text & Character Reveal**: títulos revelados caractere por caractere a partir de máscaras vetoriais.
 - **Parallax (Scroll & Mouse)**: vídeo em profundidade e cards 3D dinâmicos.
@@ -56,6 +58,14 @@ cd sollos
 # npx serve .
 # python -m http.server 8000
 ```
+
+---
+
+## 🌐 Hospedagem (Locaweb / Servidores Web)
+
+O site da SOLLOS é **100% estático** (HTML5, CSS3 e JavaScript ES6 puros, sem dependência de runtime Node.js em produção):
+- **Compatibilidade com Locaweb**: basta transferir todos os arquivos do repositório para o diretório raiz público (`public_html` ou `web`) através de **FTP** (FileZilla) ou pelo **Gerenciador de Arquivos** do painel da Locaweb.
+- **Caminhos Relativos**: todos os assets (imagens, estilos e scripts) utilizam caminhos relativos (`./`), permitindo execução perfeita tanto em domínios próprios quanto em subdomínios ou pré-visualizações.
 
 ---
 
