@@ -14,7 +14,7 @@ Write-Host "[1/3] Adicionando arquivos modificados..." -ForegroundColor Yellow
 git add .
 
 Write-Host "[2/3] Criando commit com as atualizacoes..." -ForegroundColor Yellow
-git commit -m "feat: atualiza metricas m2 (+5MM / +3MM), coluna lideranca e creditos zionsites"
+git commit -m "feat: atualiza endereco (Rua Sapetuba, 75) e telefone ((11) 3031.2105)"
 
 Write-Host "[3/3] Enviando para o repositorio GitHub (branch main)..." -ForegroundColor Yellow
 git push origin main

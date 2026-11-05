@@ -71,6 +71,6 @@ O site da SOLLOS é **100% estático** (HTML5, CSS3 e JavaScript ES6 puros, sem 
 
 ## 📍 Contato & Localização
 
-- **Endereço**: Av. Pres. Juscelino Kubitschek, 2041 — Vila Olímpia, São Paulo - SP
-- **Telefone**: (11) 3044-0000
+- **Endereço**: Rua Sapetuba, 75 — Butantã, São Paulo - SP
+- **Telefone**: (11) 3031.2105
 - **E-mail**: sollos@sollos.com.br
