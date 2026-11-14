@@ -895,3 +895,19 @@ html[lang="en"][data-theme="dark"] .theme-toggle-label::after {
   color: #71717A !important;
 }
 
+/* Track Record no Tema Escuro e Claro */
+[data-theme="dark"] .track-card-metric,
+[data-theme="dark"] .track-card-cta {
+  color: var(--gold);
+}
+
+[data-theme="dark"] .track-card:hover .track-card-cta {
+  color: var(--gold-light);
+}
+
+[data-theme="light"] .track-card:hover {
+  border-color: var(--crimson);
+  box-shadow: 0 16px 40px rgba(142, 27, 31, 0.12);
+}
+
+

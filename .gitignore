@@ -6,6 +6,7 @@ Thumbs.db
 
 # Logs e Temporários
 *.log
+*.zip
 scratch/
 temp/
 powershell.*

@@ -8,6 +8,7 @@ const SOLLOS_I18N_DATA = {
     // Header & Navegação
     nav_institucional: "Institucional",
     nav_expertise: "Expertise",
+    nav_track_record: "Track Record",
     nav_credibilidade: "Credibilidade",
     nav_parceiros: "Parceiros",
     nav_contato: "Contato",
@@ -65,6 +66,24 @@ const SOLLOS_I18N_DATA = {
     video_badge: "Due Diligence & Inteligência Técnica",
     video_title: "Engenharia Financeira & Auditoria de Ativos",
     video_desc: "Tecnologia avançada, análise de viabilidade e rigor regulatório para mitigar riscos e estruturar ativos de grande porte no Brasil.",
+
+    // Track Record
+    track_label: "MARCOS HISTÓRICOS & CONQUISTAS",
+    track_title: "PROJETOS QUE MARCAM NOSSA<br><strong>TRAJETÓRIA</strong>",
+    track_subtitle: "Grandes transações e marcos imobiliários estruturados com os principais conglomerados corporativos do país.",
+    track_c1_tag: "Varejo & Shopping Centers • 2009",
+    track_c1_metric: "Shopping União de Osasco",
+    track_c1_title: "Estruturação de Venda ABB → Grupo Savoy",
+    track_c1_desc: "Estruturação de Venda da ABB para o Grupo Savoy inaugurar em 2009 o Shopping União de Osasco.",
+    track_c2_tag: "Logística Triple AAA • 100.000 m²",
+    track_c2_metric: "Complexo CONE Suape • Recife / PE",
+    track_c2_title: "Locação Triple AAA → Grupo Pão de Açúcar (GPA)",
+    track_c2_desc: "Locação de 100.000 M² do Galpão Triple AAA para o GPA em Recife no Complexo CONE SUAPE.",
+    track_c3_tag: "Incorporação & Terrenos Estruturados",
+    track_c3_metric: "Living Magic Osasco • Osasco / SP",
+    track_c3_title: "Venda de Terreno Colgate-Palmolive",
+    track_c3_desc: "Venda de Terreno da Colgate Palmolive para construção do Living Magic Osasco.",
+    track_cta_btn: "Consultar Detalhes ➔",
 
     // Credibilidade
     cred_eyebrow: "CREDIBILIDADE & CONFIANÇA",
@@ -152,6 +171,7 @@ const SOLLOS_I18N_DATA = {
     // Header & Navigation
     nav_institucional: "About Us",
     nav_expertise: "Expertise",
+    nav_track_record: "Track Record",
     nav_credibilidade: "Credibility",
     nav_parceiros: "Partners",
     nav_contato: "Contact",
@@ -209,6 +229,24 @@ const SOLLOS_I18N_DATA = {
     video_badge: "Due Diligence & Technical Intelligence",
     video_title: "Financial Engineering & Asset Auditing",
     video_desc: "Advanced methodology, feasibility analysis, and regulatory rigor to mitigate risk and structure prime assets throughout Brazil.",
+
+    // Track Record
+    track_label: "HISTORICAL MILESTONES & DEALS",
+    track_title: "FLAGSHIP PROJECTS DEFINING OUR<br><strong>TRACK RECORD</strong>",
+    track_subtitle: "Major corporate transactions and landmark real estate deals structured with leading national conglomerates.",
+    track_c1_tag: "Retail & Shopping Centers • 2009",
+    track_c1_metric: "Shopping União de Osasco",
+    track_c1_title: "ABB Sale Structuring → Grupo Savoy",
+    track_c1_desc: "Sale structuring of ABB facilities for Grupo Savoy to inaugurate Shopping União de Osasco in 2009.",
+    track_c2_tag: "Triple-AAA Logistics • 100,000 sqm",
+    track_c2_metric: "CONE Suape Complex • Recife / PE",
+    track_c2_title: "100,000 sqm Triple-AAA Lease → GPA",
+    track_c2_desc: "100,000 sqm Triple-AAA warehouse leasing for GPA in Recife at CONE Suape Complex.",
+    track_c3_tag: "Land Banking & Residential Development",
+    track_c3_metric: "Living Magic Osasco • Osasco / SP",
+    track_c3_title: "Colgate-Palmolive Land Transaction",
+    track_c3_desc: "Sale of Colgate-Palmolive strategic land plot for the development of Living Magic Osasco.",
+    track_cta_btn: "Inquire Details ➔",
 
     // Credibilidade
     cred_eyebrow: "CREDIBILITY & TRUST",
