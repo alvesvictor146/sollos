@@ -371,17 +371,25 @@ button {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 1.45rem;
+  gap: 1.35rem;
   list-style: none;
+  flex-wrap: nowrap;
+}
+
+.nav-menu > li {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .nav-link {
+  display: inline-block;
   font-family: var(--font-heading);
   font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: nowrap !important;
   color: var(--text-secondary);
   position: relative;
   padding: 0.5rem 0;

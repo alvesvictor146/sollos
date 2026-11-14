@@ -356,6 +356,7 @@ html[lang="en"][data-theme="dark"] .theme-toggle-label::after {
   .nav-link {
     color: #27272A;
     font-weight: 600;
+    white-space: nowrap !important;
   }
   .nav-link:hover, .nav-link.active {
     color: #09090B;
